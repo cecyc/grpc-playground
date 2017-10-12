@@ -31,6 +31,7 @@ The doggos folder contains the generated golang library that client/main.go and 
 ### Lessons learned 
 
 1. Client and server can be different languages
+
 One thing that stumped me is that the client and the server can actually be written in different languages.
 
 You can generate libraries in languages like Ruby, Python, PHP (though you can't write a server in PHP yet), C#, and Javascript.
@@ -38,6 +39,7 @@ You can generate libraries in languages like Ruby, Python, PHP (though you can't
 So technically, I could have made the client in a differen language than the server. They don't have to be both the same language, and I found that a little confusing when I started.
 
 2. The server must implement all methods
+
 This is kind of a dumb one, and a gimmie, but I didn't realize at first my server would need to implement all the server methods described in the server interface.
 
 ```
@@ -54,4 +56,5 @@ I typically start of my coding by doing one thing, making sure it works, then mo
 What I did to get around that was simply implement the methods so I could satisfy the interface, but simply return `nil, nil`, and then build the functionality later as I tested.
 
 3. Vendoring
+
 I had to vendor some stuff from google in order to have access to the protocol buffers annotations (which is optional). There may be a better way to do this.
