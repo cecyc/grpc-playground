@@ -1,0 +1,62 @@
+syntax = "proto3";
+package doggos;
+import "google/api/annotations.proto";
+
+service Doggos {
+	rpc CreateNewDoggo (NewDoggoRequest) returns (Doggo) {
+		option (google.api.http) = {
+			post: "v1/doggos"
+			body: "*"
+		};
+	}
+	rpc GetDoggo (GetDoggoRequest) returns (Doggo) {
+		option (google.api.http) = {
+			get: "v1/doggos/{name}"
+		};
+	}
+
+	rpc DeleteDoggo (DeleteDoggoRequest) returns (DeleteDoggoResponse) {
+		option (google.api.http) = {
+			delete: "v1/doggos/{name}"
+		};
+	}
+
+	rpc ListDoggos (ListDoggosRequest) returns (ListDoggosResponse) {
+		option (google.api.http) = {
+			get: "v1/doggos"
+		};
+	}
+}
+
+message Doggo {
+	uint32 id = 1;
+	string name = 2;
+	uint32 age = 3;
+}
+
+message NewDoggoRequest {
+	string name = 1;
+	uint32 age = 2;
+}
+
+message GetDoggoRequest {
+	uint32 id = 1;
+	string name = 2;
+}
+
+message DeleteDoggoRequest {
+	uint32 id = 1;
+	string name = 2;
+}
+
+message DeleteDoggoResponse {
+	bool success = 1;
+}
+
+message ListDoggosRequest {
+
+}
+
+message ListDoggosResponse {
+	repeated Doggo doggos = 1;
+}
