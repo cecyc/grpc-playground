@@ -51,9 +51,9 @@ type DoggosServer interface {
 }
 ```
 
-I typically start of my coding by doing one thing, making sure it works, then moving on to the next thing. So when I started coding and testing my server, I had only implemented CreateNewDoggo, so I was getting errors that the other methods weren't implemented.
+I typically start my coding by doing one thing, making sure it works, then moving on to the next thing. So when I started coding and testing my server, I had only implemented CreateNewDoggo, so I was getting errors that the other methods weren't implemented.
 
-What I did to get around that was simply implement the methods so I could satisfy the interface, but simply return `nil, nil`, and then build the functionality later as I tested.
+What I did to get around that was simply implement the methods so I could satisfy the interface in Go, but simply return `nil, nil`, and then build the functionality later as I tested.
 
 3. Vendoring
 
